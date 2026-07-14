@@ -1,0 +1,33 @@
+page {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+    background-color: #5E7E8B;
+}
+
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav-container {
+    background-color: #5E7E8B;
+}
+
+mat-sidenav {
+    background-color: #577a88;
+    width: 15%;
+    min-width: 200px;
+
+}
+
+.content {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
