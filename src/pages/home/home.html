@@ -1,0 +1,23 @@
+<br />
+<div class="shaking-text">
+    <span *ngFor="let letra of getTextArray('The Wedding Day')"
+    [class.flicker]="mustFlicker()" style="font-size: 72px;">{{ letra }}</span>
+</div>
+
+
+<h2 class="subtitle">Edison Angeloni & Natália de Pinho</h2> 
+
+<img src="assets/images/img_naty_angeloni_02.jpg" alt="Desenho casamento Edison e Natália no estilo Famlia Addams com castelo de fundo e dentro de floresta sombia" class="wedding-image" />
+
+
+<audio #audioPlayer [src]="audioSrc" autoplay></audio>
+<mat-icon (click)="tocar()" *ngIf="!isPlaying" class="mat-icon-play">play_circle</mat-icon>
+<mat-icon (click)="tocar()" *ngIf="isPlaying" class="mat-icon-play">pause_circle</mat-icon>
+&nbsp;
+<mat-slider min="0" max="1" step="0.1" (input)="mudarVolume($event)" class="mat-slider-custom">
+  <input matSliderThumb  value="1">
+</mat-slider>
+
+<br />
+
+
