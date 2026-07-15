@@ -26,8 +26,18 @@ mat-sidenav {
 }
 
 .content {
-    width: 60%;
-    margin: 0 auto;
+    width: 100%;
+    margin:0 auto;
+    display: flex;
+}
+
+.content-menu {
+    width: 5%;
+    padding: 1rem;
 }
 
 
+.content-pages {
+    width: 60%;
+    margin: 0 auto;
+}

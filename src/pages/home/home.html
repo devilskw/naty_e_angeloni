@@ -1,13 +1,13 @@
 <br />
 <div class="shaking-text">
     <span *ngFor="let letra of getTextArray('The Wedding Day')"
-    [class.flicker]="mustFlicker()" style="font-size: 72px;">{{ letra }}</span>
+    [class.flicker]="mustFlicker()" class="wedding-title">{{ letra }}</span>
 </div>
 
 
-<h2 class="subtitle">Edison Angeloni & Natália de Pinho</h2> 
+<h2 class="subtitle">Edison Angeloni & Natalia de Pinho</h2> 
 
-<img src="assets/images/img_naty_angeloni_02.jpg" alt="Desenho casamento Edison e Natália no estilo Famlia Addams com castelo de fundo e dentro de floresta sombia" class="wedding-image" />
+<img src="assets/images/img_naty_angeloni_02.jpg" alt="Desenho casamento Edison e Natalia no estilo Famlia Addams com castelo de fundo e dentro de floresta sombia" class="wedding-image" />
 
 
 <audio #audioPlayer [src]="audioSrc" autoplay></audio>
