@@ -1,17 +1,22 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav #sidenav [mode]="deviceWidth > 500 ? 'side': 'over'" [(opened)]="opened" disableClose="!isMobile()">
     <mat-nav-list>
-        <a mat-list-item routerLink="/" routerLinkActive="active-link">Home</a>
-        <a mat-list-item routerLink="/historia" routerLinkActive="active-link">História</a>
-        <a mat-list-item routerLink="/manual" routerLinkActive="active-link">Manual do Convidado</a>
-        <a mat-list-item routerLink="/presenca" routerLinkActive="active-link">Lista de Presença</a>
-        <a mat-list-item routerLink="/presentes" routerLinkActive="active-link">Presentes</a>
-        <a mat-list-item routerLink="/localizacao" routerLinkActive="active-link">Localização</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/" routerLinkActive="active-link" (click)="toggleSidenav()">Home</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/historia" routerLinkActive="active-link" (click)="toggleSidenav()">História</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/manual" routerLinkActive="active-link" (click)="toggleSidenav()">Manual do Convidado</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/presenca" routerLinkActive="active-link" (click)="toggleSidenav()">Lista de Presença</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/presentes" routerLinkActive="active-link" (click)="toggleSidenav()">Presentes</a>
+        <a mat-list-item class="mat-list-item-custom" routerLink="/localizacao" routerLinkActive="active-link" (click)="toggleSidenav()">Localização</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content">
-      <router-outlet></router-outlet>
+      <div class="content-menu" *ngIf="!opened">
+        <mat-icon class="material-symbols-outlined" style="font-size: 32px;" (click)="toggleSidenav()">menu</mat-icon>
+      </div>
+      <div class="content-pages">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

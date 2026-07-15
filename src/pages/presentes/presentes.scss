@@ -1,0 +1,11 @@
+.presentes-image {
+    width:50%;
+    min-width:150px;
+}
+
+@media (min-width: 500px) {
+    .presentes-image {
+        width:30%;
+        min-width:250px;
+    }
+}

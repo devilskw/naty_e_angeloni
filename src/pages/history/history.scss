@@ -2,3 +2,15 @@
     width:70%;
     margin: 0 auto;
 }
+
+.history-image {
+    width: 120%;
+    border-radius: 10px;
+}
+
+@media (min-width: 500px) {
+    .history-text {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
