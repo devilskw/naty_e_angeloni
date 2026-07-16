@@ -20,6 +20,15 @@ h3 {
     font-style: regular;
 }
 
+.mat-icons{
+    margin: 0 auto;
+    color: #303030;
+    font-size: 24px;
+    line-height: 24px;
+    width: 24px;
+    height: 24px;
+}
+
 @media (min-width: 500px) {
     .rules-text {
         width: 70%;
@@ -41,5 +50,13 @@ h3 {
         font-size: 28px;
         font-weight: 600;
         font-style: regular;
+    }
+    .mat-icons{
+        margin: 0 auto;
+        color: #303030;
+        font-size: 48px;
+        line-height: 48px;
+        width: 48px;
+        height: 48px;
     }
 }

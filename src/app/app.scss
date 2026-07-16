@@ -70,7 +70,8 @@ mat-sidenav {
 
   .content-audio {
     margin-top: 50px;
-    width: 100%;
+    padding-left: 5px;
+    width: 90%;
   }
 
   .mat-icon-play {
@@ -79,7 +80,7 @@ mat-sidenav {
   }
 
   .mat-slider-custom {
-    width: 50%;
+    width: 45%;
     margin-top:-15px;
 
     --mat-slider-active-track-color: #303030;
