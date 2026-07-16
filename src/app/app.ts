@@ -1,4 +1,4 @@
-import { Component, signal, HostListener, OnInit, ChangeDetectorRef, ViewChild, ElementRef  } from '@angular/core';
+import { Component, signal, HostListener, OnInit, ChangeDetectorRef, ViewChild, ElementRef, AfterViewInit  } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf } from '@angular/common';
 
@@ -22,7 +22,7 @@ import {MatSliderModule} from '@angular/material/slider';
     , MatSliderModule
   ],
 })
-export class App {
+export class App implements OnInit, AfterViewInit {
   protected readonly title = signal('weddingday');
   @ViewChild('sidenav') sidenav!: MatSidenav;
   @ViewChild('audioPlayer', { static: false }) audioPlayer!: ElementRef;
@@ -41,6 +41,10 @@ export class App {
     this.deviceWidth = window.innerWidth;
     this.opened = true;
     this.cdr.detectChanges();
+  }
+
+  ngAfterViewInit() {
+    this.audioPlayer.nativeElement.play();
   }
 
   @HostListener('window:resize', ['$event'])
