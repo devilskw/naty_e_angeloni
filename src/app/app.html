@@ -9,7 +9,7 @@
         <a mat-list-item class="mat-list-item-custom" routerLink="/localizacao" routerLinkActive="active-link" (click)="toggleSidenav()">Localização</a>
     </mat-nav-list>
     <div class="content-audio">
-      <audio #audioPlayer [src]="audioSrc" autoplay></audio>
+      <audio #audioPlayer [src]="audioSrc" autoplay [muted]="isMuted" loop></audio>
       <mat-icon (click)="tocar()" *ngIf="!isPlaying" class="mat-icon-play">play_circle</mat-icon>
       <mat-icon (click)="tocar()" *ngIf="isPlaying" class="mat-icon-play">pause_circle</mat-icon>
       &nbsp;

@@ -30,6 +30,8 @@ export class App implements OnInit, AfterViewInit {
   opened: boolean = true;
   isPlaying = true;
   audioSrc = 'assets/music/thecure_lovesong.mp3';
+  isMuted = true;
+  firstTimePlaying = true;
 
   constructor(private cdr: ChangeDetectorRef ) {}
 
@@ -44,7 +46,11 @@ export class App implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.audioPlayer.nativeElement.play();
+    if (this.isMuted && this.isPlaying) {
+      this.unMute();
+      this.tocar();
+    }
+    this.cdr.detectChanges();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -54,6 +60,14 @@ export class App implements OnInit, AfterViewInit {
   }
 
   toggleSidenav() {
+    console.log("first time", this.firstTimePlaying);
+    if (this.firstTimePlaying) {
+      this.firstTimePlaying = false;
+      console.debug("isPlaying", this.isPlaying);
+      if (!this.isPlaying) {
+        this.tocar();
+      }
+    }
     if (this.isMobile()) {
       this.sidenav.toggle();
       this.opened = !this.opened;
@@ -63,16 +77,22 @@ export class App implements OnInit, AfterViewInit {
 
   tocar() {
     if (!this.isPlaying) {
+      console.debug("playing");
       this.audioPlayer.nativeElement.play();
     } else {
+      console.debug("paused");
       this.audioPlayer.nativeElement.pause();
     }
     this.isPlaying = !this.isPlaying;
   }
   
   mudarVolume(event: any) {
-    console.log('Volume changed to:', event.target.value);
+    console.debug('Volume changed to:', event.target.value);
     this.audioPlayer.nativeElement.volume = event.target.value;
+  }
+
+  unMute() {
+    this.isMuted = false;
   }
 
 }
