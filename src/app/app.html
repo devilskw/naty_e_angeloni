@@ -19,7 +19,7 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content">
+    <div class="content" (wheel)="onScroll($event)">
       <div class="content-menu" *ngIf="!opened">
         <mat-icon class="material-symbols-outlined" style="font-size: 32px;" (click)="toggleSidenav()">menu</mat-icon>
       </div>

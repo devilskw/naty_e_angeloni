@@ -26,6 +26,7 @@ export class App implements OnInit, AfterViewInit {
   protected readonly title = signal('weddingday');
   @ViewChild('sidenav') sidenav!: MatSidenav;
   @ViewChild('audioPlayer', { static: false }) audioPlayer!: ElementRef;
+
   deviceWidth!: number;
   opened: boolean = true;
   isPlaying = true;
@@ -34,6 +35,16 @@ export class App implements OnInit, AfterViewInit {
   firstTimePlaying = true;
 
   constructor(private cdr: ChangeDetectorRef ) {}
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event) {
+    this.playFirstTime();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    this.playFirstTime();
+  }
 
   isMobile() {
     return this.deviceWidth <= 500;
@@ -60,7 +71,15 @@ export class App implements OnInit, AfterViewInit {
   }
 
   toggleSidenav() {
-    console.log("first time", this.firstTimePlaying);
+    this.playFirstTime();
+    if (this.isMobile()) {
+      this.sidenav.toggle();
+      this.opened = !this.opened;
+    }
+    this.cdr.detectChanges();
+  }
+
+  playFirstTime() {
     if (this.firstTimePlaying) {
       this.firstTimePlaying = false;
       console.debug("isPlaying", this.isPlaying);
@@ -68,11 +87,6 @@ export class App implements OnInit, AfterViewInit {
         this.tocar();
       }
     }
-    if (this.isMobile()) {
-      this.sidenav.toggle();
-      this.opened = !this.opened;
-    }
-    this.cdr.detectChanges();
   }
 
   tocar() {
