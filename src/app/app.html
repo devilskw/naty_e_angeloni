@@ -8,6 +8,15 @@
         <a mat-list-item class="mat-list-item-custom" routerLink="/presentes" routerLinkActive="active-link" (click)="toggleSidenav()">Presentes</a>
         <a mat-list-item class="mat-list-item-custom" routerLink="/localizacao" routerLinkActive="active-link" (click)="toggleSidenav()">Localização</a>
     </mat-nav-list>
+    <div class="content-audio">
+      <audio #audioPlayer [src]="audioSrc" autoplay></audio>
+      <mat-icon (click)="tocar()" *ngIf="!isPlaying" class="mat-icon-play">play_circle</mat-icon>
+      <mat-icon (click)="tocar()" *ngIf="isPlaying" class="mat-icon-play">pause_circle</mat-icon>
+      &nbsp;
+      <mat-slider min="0" max="1" step="0.1" (input)="mudarVolume($event)" class="mat-slider-custom">
+        <input matSliderThumb  value="1">
+      </mat-slider>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content">
