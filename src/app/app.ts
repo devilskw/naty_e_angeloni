@@ -1,10 +1,11 @@
-import { Component, signal, HostListener, OnInit, ChangeDetectorRef, ViewChild  } from '@angular/core';
+import { Component, signal, HostListener, OnInit, ChangeDetectorRef, ViewChild, ElementRef  } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf } from '@angular/common';
 
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,17 @@ import { MatIconModule } from '@angular/material/icon';
     , MatListModule
     , MatIconModule
     , NgIf
+    , MatSliderModule
   ],
 })
 export class App {
   protected readonly title = signal('weddingday');
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('audioPlayer', { static: false }) audioPlayer!: ElementRef;
   deviceWidth!: number;
   opened: boolean = true;
+  isPlaying = true;
+  audioSrc = 'assets/music/thecure_lovesong.mp3';
 
   constructor(private cdr: ChangeDetectorRef ) {}
 
@@ -50,6 +55,20 @@ export class App {
       this.opened = !this.opened;
     }
     this.cdr.detectChanges();
+  }
+
+  tocar() {
+    if (!this.isPlaying) {
+      this.audioPlayer.nativeElement.play();
+    } else {
+      this.audioPlayer.nativeElement.pause();
+    }
+    this.isPlaying = !this.isPlaying;
+  }
+  
+  mudarVolume(event: any) {
+    console.log('Volume changed to:', event.target.value);
+    this.audioPlayer.nativeElement.volume = event.target.value;
   }
 
 }

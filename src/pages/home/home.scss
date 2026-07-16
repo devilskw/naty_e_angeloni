@@ -11,24 +11,6 @@
   border-radius: 20px;
 }
 
-.mat-icon-play {
-  margin-top: 5px;
-  line-height: 1.1;
-}
-
-.mat-slider-custom {
-  width: 50px;
-
-  --mat-slider-active-track-color: #000;
-  --mat-slider-inactive-track-color: #e0e0e0;
-  --mat-slider-handle-color: #000;
-  --mat-slider-focus-handle-color: #000;
-
-  --mat-slider-handle-width:15px;
-  --mat-slider-handle-height:15px;
-}
-
-
 @media (min-width: 500px) {
   .wedding-title {
     font-size: 72px;
@@ -43,20 +25,4 @@
     border-radius: 20px;
   }
 
-  .mat-icon-play {
-    margin-top: 5px;
-    line-height: 1.1;
-  }
-
-  .mat-slider-custom {
-    width: 300px;
-
-    --mat-slider-active-track-color: #000;
-    --mat-slider-inactive-track-color: #e0e0e0;
-    --mat-slider-handle-color: #000;
-    --mat-slider-focus-handle-color: #000;
-
-    --mat-slider-handle-width:15px;
-    --mat-slider-handle-height:15px;
-  }
 }
