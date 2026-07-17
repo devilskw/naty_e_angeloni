@@ -38,7 +38,7 @@ export class App implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event) {
-    this.playFirstTime();
+    // this.playFirstTime();
   }
 
   @HostListener('document:click', ['$event'])
